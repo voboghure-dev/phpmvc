@@ -1,0 +1,16 @@
+{
+    "name": "voboghure/phpmvc",
+    "description": "First MVC framework from scratch",
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tapan Kumer Das",
+            "email": "voboghure.dev@gmail.com"
+        }
+    ],
+    "require": {}
+}
