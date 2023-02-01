@@ -19,10 +19,16 @@ class Router {
 		$method   = $this->request->getMethod();
 		$callback = $this->routes[$method][$path] ?? false;
 		if ( $callback === false ) {
-			echo "Not Found";
-			return;
+			return "Not Found";
 		}
-		echo call_user_func( $callback );
+		if ( is_string( $callback ) ) {
+			return $this->renderView( $callback );
+		}
+		return call_user_func( $callback );
+	}
+
+	public function renderView( $view ) {
+		include_once __DIR__ . "/../views/$view.php";
 	}
 
 }
