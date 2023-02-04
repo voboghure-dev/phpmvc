@@ -2,9 +2,18 @@
 
 namespace app\controllers;
 
-class SiteController {
+use app\core\Application;
 
-    public function handleContact() {
-        return "Handling submitted data";
-    }
+class SiteController {
+	public function home() {
+		return Application::$app->router->renderView( 'home' );
+	}
+
+    public function contact() {
+		return Application::$app->router->renderView( 'contact' );
+	}
+
+	public function handleContact() {
+		return "Handling submitted data";
+	}
 }
