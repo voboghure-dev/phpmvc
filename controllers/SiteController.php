@@ -6,10 +6,14 @@ use app\core\Application;
 
 class SiteController {
 	public function home() {
-		return Application::$app->router->renderView( 'home' );
+		$params = [
+			'name' => 'VoboGhure',
+		];
+
+		return Application::$app->router->renderView( 'home', $params );
 	}
 
-    public function contact() {
+	public function contact() {
 		return Application::$app->router->renderView( 'contact' );
 	}
 
