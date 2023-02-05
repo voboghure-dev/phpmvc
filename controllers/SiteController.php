@@ -12,7 +12,6 @@ class SiteController extends Controller {
 			'name' => 'VoboGhure',
 		];
 
-		// return Application::$app->router->renderView( 'home', $params );
 		return $this->render( 'home', $params );
 	}
 
