@@ -10,12 +10,12 @@ class Application {
 	public static Application $app;
 	public Controller $controller;
 
-	public function __construct( $rootPath ) {
+	public function __construct($rootPath) {
 		self::$ROOT_PATH = $rootPath;
 		self::$app       = $this;
 		$this->request   = new Request();
 		$this->response  = new Response();
-		$this->router    = new Router( $this->request, $this->response );
+		$this->router    = new Router($this->request, $this->response);
 	}
 
 	public function run() {
@@ -26,7 +26,7 @@ class Application {
 		return $this->controller;
 	}
 
-	public function setController( Controller $controller ) {
+	public function setController(Controller $controller) {
 		$this->controller = $controller;
 	}
 }
