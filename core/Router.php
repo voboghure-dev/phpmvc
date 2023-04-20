@@ -26,6 +26,7 @@ class Router {
 		$callback = $this->routes[$method][$path] ?? false;
 		if ( $callback === false ) {
 			$this->response->setStatusCode( 404 );
+
 			return $this->renderView( "_404" );
 		}
 		if ( is_string( $callback ) ) {
@@ -35,17 +36,20 @@ class Router {
 			Application::$app->controller = new $callback[0]();
 			$callback[0]                  = Application::$app->controller;
 		}
+
 		return call_user_func( $callback, $this->request );
 	}
 
 	public function renderView( $view, $params = [] ) {
 		$layoutContent = $this->layoutContent();
 		$viewContent   = $this->viewContent( $view, $params );
+
 		return str_replace( '{{content}}', $viewContent, $layoutContent );
 	}
 
 	public function renderContent( $viewContent ) {
 		$layoutContent = $this->layoutContent();
+
 		return str_replace( '{{content}}', $viewContent, $layoutContent );
 	}
 
@@ -53,6 +57,7 @@ class Router {
 		$layout = Application::$app->controller->layout;
 		ob_start();
 		include_once Application::$ROOT_PATH . "/views/layouts/$layout.php";
+
 		return ob_get_clean();
 	}
 
@@ -63,6 +68,7 @@ class Router {
 
 		ob_start();
 		include_once Application::$ROOT_PATH . "/views/$view.php";
+
 		return ob_get_clean();
 	}
 

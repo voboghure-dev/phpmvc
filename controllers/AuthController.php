@@ -8,30 +8,30 @@ use app\models\RegisterModel;
 
 class AuthController extends Controller {
 	public function login() {
-		$this->setLayout('auth');
+		$this->setLayout( 'auth' );
 
-		return $this->render('login');
+		return $this->render( 'login' );
 	}
 
-	public function register(Request $request) {
-		$this->setLayout('auth');
+	public function register( Request $request ) {
+		$this->setLayout( 'auth' );
 		$registerModel = new RegisterModel();
-		if ($request->isPost()) {
-			$registerModel->loadData($request->getBody());
+		if ( $request->isPost() ) {
+			$registerModel->loadData( $request->getBody() );
 
-			if ($registerModel->validate() && $registerModel->register()) {
+			if ( $registerModel->validate() && $registerModel->register() ) {
 				return "Success";
 			}
 
-			print_r($registerModel->errors); die;
+			print_r( $registerModel->errors );die;
 
-			return $this->render('register', [
+			return $this->render( 'register', [
 				'model' => $registerModel,
-			]);
+			] );
 		}
 
-		return $this->render('register', [
+		return $this->render( 'register', [
 			'model' => $registerModel,
-		]);
+		] );
 	}
 }
