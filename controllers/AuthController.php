@@ -1,5 +1,4 @@
 <?php
-
 namespace app\controllers;
 
 use app\core\Controller;
@@ -22,8 +21,6 @@ class AuthController extends Controller {
 			if ( $registerModel->validate() && $registerModel->register() ) {
 				return "Success";
 			}
-
-			print_r( $registerModel->errors );die;
 
 			return $this->render( 'register', [
 				'model' => $registerModel,
