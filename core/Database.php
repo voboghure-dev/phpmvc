@@ -34,7 +34,7 @@ class Database {
 			$newMigrations[] = $migration;
 		}
 
-		if ( ! empty( $newMigrations ) ) {
+		if (  ! empty( $newMigrations ) ) {
 			$this->saveMigrations( $newMigrations );
 		} else {
 			echo "All migrations are applied";
@@ -61,6 +61,10 @@ class Database {
 
 		$statement = $this->pdo->prepare( "INSERT INTO migrations (migration) VALUES $str" );
 		$statement->execute();
+	}
+
+	public function prepare( $sql ) {
+		return $this->pdo->prepare( $sql );
 	}
 
 }
