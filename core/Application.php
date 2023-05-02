@@ -10,6 +10,7 @@ class Application {
 	public Router $router;
 	public static Application $app;
 	public Controller $controller;
+	public ?DbModel $user;
 
 	public function __construct( $rootPath, array $config ) {
 		self::$ROOT_PATH = $rootPath;
@@ -31,5 +32,10 @@ class Application {
 
 	public function setController( Controller $controller ) {
 		$this->controller = $controller;
+	}
+
+	public function login(DbModel $user)
+	{
+
 	}
 }
