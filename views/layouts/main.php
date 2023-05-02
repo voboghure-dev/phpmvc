@@ -31,12 +31,20 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav mb-2 mb-lg-0">
+                    <?php if ( Application::isGuest() ): ?>
                     <li class="nav-item">
                         <a class="nav-link active" href="/login">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/register">Register</a>
                     </li>
+                    <?php else: ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">
+                            Welcome <?php echo Application::$app->user->getDisplayName(); ?> (Logout)
+                        </a>
+                    </li>
+                    <?php endif;?>
                 </ul>
 
             </div>

@@ -10,7 +10,8 @@ class Application {
 	public Router $router;
 	public static Application $app;
 	public Controller $controller;
-	public ?DbModel $user;
+	public  ? DbModel $user;
+	public string $userClass;
 
 	public function __construct( $rootPath, array $config ) {
 		self::$ROOT_PATH = $rootPath;
@@ -20,6 +21,16 @@ class Application {
 		$this->session   = new Session();
 		$this->router    = new Router( $this->request, $this->response );
 		$this->db        = new Database( $config['db'] );
+		$this->userClass = $config['userClass'];
+
+		$primaryValue = $this->session->get( 'user' );
+		if ( $primaryValue ) {
+			$primaryKey = $this->userClass::primaryKey();
+			$this->user = $this->userClass::findOne( [$primaryKey => $primaryValue] );
+		} else {
+			$this->user = null;
+		}
+
 	}
 
 	public function run() {
@@ -34,8 +45,21 @@ class Application {
 		$this->controller = $controller;
 	}
 
-	public function login(DbModel $user)
-	{
+	public static function isGuest() {
+		return  ! self::$app->user;
+	}
 
+	public function login( DbModel $user ) {
+		$this->user   = $user;
+		$primaryKey   = $user->primaryKey();
+		$primaryValue = $user->{$primaryKey};
+		$this->session->set( 'user', $primaryValue );
+
+		return true;
+	}
+
+	public function logout() {
+		$this->user = null;
+		$this->session->remove( 'user' );
 	}
 }
