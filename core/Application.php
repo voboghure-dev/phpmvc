@@ -9,9 +9,10 @@ class Application {
 	public Database $db;
 	public Router $router;
 	public static Application $app;
-	public Controller $controller;
+	public  ? Controller $controller = null;
 	public  ? DbModel $user;
 	public string $userClass;
+	public string $layout = 'main';
 
 	public function __construct( $rootPath, array $config ) {
 		self::$ROOT_PATH = $rootPath;
