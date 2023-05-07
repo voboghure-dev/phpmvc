@@ -11,6 +11,7 @@ class Application {
 	public static Application $app;
 	public  ? Controller $controller = null;
 	public  ? DbModel $user;
+	public View $view;
 	public string $userClass;
 	public string $layout = 'main';
 
@@ -22,6 +23,7 @@ class Application {
 		$this->session   = new Session();
 		$this->router    = new Router( $this->request, $this->response );
 		$this->db        = new Database( $config['db'] );
+		$this->view      = new View();
 		$this->userClass = $config['userClass'];
 
 		$primaryValue = $this->session->get( 'user' );
@@ -39,7 +41,7 @@ class Application {
 			echo $this->router->resolve();
 		} catch ( \Exception $e ) {
 			$this->response->setStatusCode( $e->getCode() );
-			echo $this->router->renderView( '_error', [
+			echo $this->view->renderView( '_error', [
 				'exception' => $e,
 			] );
 		}

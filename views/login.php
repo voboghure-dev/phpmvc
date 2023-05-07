@@ -1,5 +1,7 @@
 <?php
-	/** @var $model \app\models\User */
+	/** @var \app\models\User $model */
+
+	$this->title = 'Login';
 ?>
 <h1>Login</h1>
 
