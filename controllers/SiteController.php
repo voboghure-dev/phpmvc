@@ -21,7 +21,7 @@ class SiteController extends Controller {
 		if ( $request->isPost() ) {
 			$contactForm->loadData( $request->getBody() );
 			if ( $contactForm->validate() && $contactForm->send() ) {
-				Application::$app->session->setFlash( 'success', 'Your message sent' );
+				Application::$app->session->setFlash( 'success', 'Thanks for contacting with us' );
 
 				return $response->redirect( '/contact' );
 			}
@@ -31,5 +31,4 @@ class SiteController extends Controller {
 			'model' => $contactForm,
 		] );
 	}
-
 }
