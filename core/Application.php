@@ -1,6 +1,8 @@
 <?php
 namespace app\core;
 
+use app\core\db\Database;
+
 class Application {
 	public static string $ROOT_PATH;
 	public Request $request;
@@ -10,7 +12,7 @@ class Application {
 	public Router $router;
 	public static Application $app;
 	public  ? Controller $controller = null;
-	public  ? DbModel $user;
+	public  ? UserModel $user;
 	public View $view;
 	public string $userClass;
 	public string $layout = 'main';
@@ -59,7 +61,7 @@ class Application {
 		return  ! self::$app->user;
 	}
 
-	public function login( DbModel $user ) {
+	public function login( UserModel $user ) {
 		$this->user   = $user;
 		$primaryKey   = $user->primaryKey();
 		$primaryValue = $user->{$primaryKey};
