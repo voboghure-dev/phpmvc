@@ -1,10 +1,10 @@
 <?php
-	/** @var app\core\View $this */
+	/** @var voboghure\phpmvc\View $this */
 	/** @var app\models\ContactForm $model */
 
-	use app\core\form\Form;
-	use app\core\form\InputField;
-	use app\core\form\TextareaField;
+	use voboghure\phpmvc\form\Form;
+	use voboghure\phpmvc\form\InputField;
+	use voboghure\phpmvc\form\TextareaField;
 
 	$this->title = 'Contact';
 ?>

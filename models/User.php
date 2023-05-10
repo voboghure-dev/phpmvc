@@ -1,7 +1,7 @@
 <?php
 namespace app\models;
 
-use app\core\UserModel;
+use voboghure\phpmvc\UserModel;
 
 class User extends UserModel {
 	const STATUS_INACTIVE = 0;

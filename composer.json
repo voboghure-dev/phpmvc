@@ -13,6 +13,7 @@
         }
     ],
     "require": {
-        "vlucas/phpdotenv": "^5.5"
+        "vlucas/phpdotenv": "^5.5",
+        "voboghure/php-mvc-core": "^1.0"
     }
 }

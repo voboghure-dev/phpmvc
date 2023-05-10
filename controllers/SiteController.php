@@ -1,10 +1,10 @@
 <?php
 namespace app\controllers;
 
-use app\core\Application;
-use app\core\Controller;
-use app\core\Request;
-use app\core\Response;
+use voboghure\phpmvc\Application;
+use voboghure\phpmvc\Controller;
+use voboghure\phpmvc\Request;
+use voboghure\phpmvc\Response;
 use app\models\ContactForm;
 
 class SiteController extends Controller {

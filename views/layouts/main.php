@@ -1,5 +1,5 @@
 <?php
-	use app\core\Application;
+	use voboghure\phpmvc\Application;
 ?>
 <!doctype html>
 <html lang="en">

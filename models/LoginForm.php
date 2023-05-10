@@ -1,8 +1,8 @@
 <?php
 namespace app\models;
 
-use app\core\Application;
-use app\core\Model;
+use voboghure\phpmvc\Application;
+use voboghure\phpmvc\Model;
 use app\models\User;
 
 class LoginForm extends Model {

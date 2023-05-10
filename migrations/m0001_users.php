@@ -1,6 +1,6 @@
 <?php
 
-use app\core\Application;
+use voboghure\phpmvc\Application;
 
 class m0001_users {
 

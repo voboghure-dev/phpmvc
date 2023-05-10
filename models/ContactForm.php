@@ -1,7 +1,7 @@
 <?php
 namespace app\models;
 
-use app\core\Model;
+use voboghure\phpmvc\Model;
 
 class ContactForm extends Model {
 	public string $subject = '';
