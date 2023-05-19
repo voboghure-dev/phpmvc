@@ -1,11 +1,11 @@
 <?php
 namespace app\controllers;
 
+use app\models\ContactForm;
 use voboghure\phpmvc\Application;
 use voboghure\phpmvc\Controller;
 use voboghure\phpmvc\Request;
 use voboghure\phpmvc\Response;
-use app\models\ContactForm;
 
 class SiteController extends Controller {
 	public function home() {

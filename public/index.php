@@ -1,5 +1,6 @@
 <?php
 
+use app\controllers\APIController;
 use app\controllers\AuthController;
 use app\controllers\SiteController;
 use app\models\User;
@@ -38,5 +39,7 @@ $app->router->get( '/register', [AuthController::class, 'register'] );
 $app->router->post( '/register', [AuthController::class, 'register'] );
 $app->router->get( '/logout', [AuthController::class, 'logout'] );
 $app->router->get( '/profile', [AuthController::class, 'profile'] );
+
+$app->router->post( '/api-login', [APIController::class, 'login'] );
 
 $app->run();
