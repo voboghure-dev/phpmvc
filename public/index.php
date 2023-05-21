@@ -41,5 +41,6 @@ $app->router->get( '/logout', [AuthController::class, 'logout'] );
 $app->router->get( '/profile', [AuthController::class, 'profile'] );
 
 $app->router->post( '/api-login', [APIController::class, 'login'] );
+$app->router->post( '/api-add-user', [APIController::class, 'add_user'] );
 
 $app->run();
